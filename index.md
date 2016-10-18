@@ -21,8 +21,6 @@ ContextHub makes this possible through the following five major components:
 
 The ContextHub service is available using the following tools:
 
-- [iOS SDK](/docs/ios/)
-- [Android SDK](/docs/android/)
 - [REST API](/contexthub-api/)
 - A [Developer Portal](/docs/admin/) for managing
     - [Vault data](/docs/admin/#Vault)
