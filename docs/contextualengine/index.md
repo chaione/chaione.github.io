@@ -80,7 +80,7 @@ The `tick` event is a special event that is automatically executed once every mi
 ### Sample Event
 
 Here is the structure of a sample event:
-{% gist CHLibrarian/18c01d70d2448bfec465 %}
+{% gist r-moctezuma/ae7a6843fe9e02316d0d9401a8c3f6be %}
 
 
 <a name="http" data-magellan-destination="http"></a>
