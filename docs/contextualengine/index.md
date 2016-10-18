@@ -10,6 +10,15 @@ The contextual engine is the center of ContextHub, adding dynamic capabilities t
 
 To make Context Rules useful, ContextHub provides a number of pre-existing objects that you can interact with when one of your context rules executes:
 
+- [console](#console): Log activity
+- [event](#event): Contains the data from the event that triggered the rule
+- [http](#http): Allows you to send http get/post requests
+- [vault](#vault): Lets you persist data in ContextHub
+
+Details about each object are presented below:
+
+<a name="console" data-magellan-destination="console-log"></a>
+
 ## Console
 The *console* object allows you to log activity inside your context rule.
 
