@@ -17,7 +17,7 @@ Using ContextHub is simple and straightforward:
 
 2. **Create an App.** On ContextHub, you create a separate app for each of your mobile or web applications. Each account on ContextHub can have multiple application ids for multiple apps. This lets you accommodate both testing and production versions of your app with the same account, or different apps altogether.
 
-3. **Create triggers.** Once you have created an app, you'll want to use the [Triggers](/docs/admin/#Triggers) area to create as many web endpoints as you need. Mobile devices, web apps and other servers will post events to these endpoints. Most simple applications use only one trigger.
+3. **Create triggers.** Once you have created an app, you'll want to use the [Triggers](/docs/triggers) area to create as many web endpoints as you need. Mobile devices, web apps and other servers will post events to these endpoints. Most simple applications use only one trigger.
 
 4. **Send and view your events.** A few seconds after posting events to the trigger endpoints, you should see them appear in the Developer Portal. You can view detailed information about the latest events received in the [Events](/docs/admin/#Events) area. You can also see basic reports and even extract the full event dataset in the [Analytics](/docs/admin/#Analytics) area.
 
