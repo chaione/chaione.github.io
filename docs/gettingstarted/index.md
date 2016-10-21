@@ -10,7 +10,7 @@ For this example, we are going to pretend we've have built an application(mobile
 ### Trigger
 [Sign in](https://app.contexthub.com/users/sign_in) into ContextHub if you haven't already and create a new app and call it whatever you'd like. Next, we need to create a new trigger: 
 
-![](../img/gettingStarted/newTrigger.png)
+![](../../img/gettingStarted/newTrigger.png)
 
 Once you have created a trigger, you will be provided a URL that will look like this:
 ```
@@ -32,7 +32,7 @@ https://app.contexthub.com/api/triggers/<Trigger-ID>/car_in
 
 Now if we move over to our `Events` tab on the left sidebar, we will see our called events.
 
-![Event pages](../img/gettingStarted/events.png)
+![Event pages](../../img/gettingStarted/events.png)
 
 Next, let's do the same thing for our `car_out` event:
 
@@ -52,7 +52,7 @@ So ok, we are now able to fire off events... Now what? What if we have multiple 
 
 Let's move over to our vault tab and create a new object, that will allow us to maintain state.
 
-![](../img/gettingStarted/vault.png)
+![](../../img/gettingStarted/vault.png)
 
 Next, you will be presented with a text editor let's go ahead and put the following JSON code inside:
 
@@ -70,7 +70,7 @@ So awesome, we have events... we have an object[in our vault], how do we connect
 
 A Context allow's us to connect our events to the objects in our vault. Let's move over to our Contexts tab and create a new Context.
 
-![](../img/gettingStarted/ContextNew.png)
+![](../../img/gettingStarted/ContextNew.png)
 
 And for a basic example let's just `console.log` a simple message, paste the following inside of the Context text editor:
 
@@ -81,12 +81,12 @@ And for a basic example let's just `console.log` a simple message, paste the fol
 ```
 
 And let's trigger this event from within our Context Editor, Select the `Test Event` at the bottom right corner of your screen and add some information to our nested `data` object. Finally, Press `Execute` at the top right of your page:
-![](../img/gettingStarted/ContextTestEvent.png)
+![](../../img/gettingStarted/ContextTestEvent.png)
 
 
 Alright, we're almost there! Lastly, we just have to reference the object in our fault from inside of our `Context` and subtract one from it's `spaces` property. If we checkout out the documentation for a vault object, we'll see that the [following code](https://chaione.github.io/docs/contextualengine/#vault-update) would allow us to retrieve and update our object inside of our Context.
 
-![](../img/gettingStarted/ContextVaultObject.png)
+![](../../img/gettingStarted/ContextVaultObject.png)
 
 Here's the snippet of code:
 
