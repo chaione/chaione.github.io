@@ -1,3 +1,9 @@
+---
+title: Getting Started
+layout: default
+group: "admin"
+---
+
 # Getting Started
 
 For this example, we are going to pretend we've have built an application(mobile or web) that counts the number of spacing left in a parking lot. In this app, we have 2 buttons, one that says "Car In" and the other that says "Car out". Pretty simple right?
