@@ -1,3 +1,4 @@
+{% assign gettingstarted = '/docs/gettingstarted/index.html' %}
 {% assign overview = '/index.html' %}
 {% assign admin = '/docs/admin/index.html' %}
 {% assign contextualengine = '/docs/contextualengine/index.html' %}
@@ -20,6 +21,22 @@
         </div>
     {% else %}
         <dd ><a class="home" href="/">Overview</a></dd>
+    {% endif %}
+
+    {% if page.url == Getting Started %}
+        <div id="activesection">
+          <dd>
+            <a class="home" href="#Getting Started">Getting Started</a>
+          </dd>
+          <dd data-magellan-arrival="introduction">
+            <a href="#introduction">Introduction</a>
+          </dd>
+          <dd data-magellan-arrival="getting-started">
+            <a href="#getting-started">Getting Started</a>
+          </dd>
+        </div>
+    {% else %}
+        <dd ><a class="home" href="/">Getting Started</a></dd>
     {% endif %}
 
     {% if page.url == admin %}
