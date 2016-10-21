@@ -1,7 +1,6 @@
 ---
 title: Getting Started
 layout: default
-group: "admin"
 ---
 
 # Getting Started
