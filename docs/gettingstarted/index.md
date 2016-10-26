@@ -108,8 +108,8 @@ Of course we hard-coded the `ObjectId`, the following snippet of code will show 
     var parking_lots = vault.key_path("lot", event.data.lot);
     if (parking_lots.length > 0) {
         var p_lot = parking_lots[0]
-        p_lot.data.spots_available = p_lot.data.spots_available - 1;
-        console.log("A car came into parking lot " + event.data.lot + ", " + p_lot.data.spots_available + " spaces remaining!")
+        p_lot.data.spaces = p_lot.data.spaces - 1;
+        console.log("A car came into parking lot " + event.data.lot + ", " + p_lot.data.spaces + " spaces remaining!")
         vault.update(p_lot.vault_info.id,JSON.stringify(p_lot.data));
     }
 }
@@ -130,7 +130,7 @@ Let's start by adding another Contextual rule. Let's call it `Parking Lot Status
    	    var p_lot = parking_lots[i]
 		//
 		// Uncomment the next line to log what you're sending out to the console
-		// console.log("- Parking lot " + p_lot.data.lot + " has " + p_lot.data.spots_available + " spaces available")
+		// console.log("- Parking lot " + p_lot.data.lot + " has " + p_lot.data.spaces + " spaces available")
 		//
 		// Now send this data to another system using POST
 		http.post('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
