@@ -121,24 +121,23 @@ So there it is, we have successfully updated an object in our vault by trigger s
 
 The final task we are going to walk through is using http to trigger actions / update data in external systems. To demonstrate this, we'll add a Contextual Rule that will run every minute and report the status of our parking lots to another system.
 
-Let's start by adding another Contextual Rule. Let's call it `Parking Lot Status` and select `tick` in the Event Type to ensure the system runs it every minute (see the details for Tick [here](https://chaione.github.io/docs/contextualengine/#event-tick)). And here's the snippet of code:
+Let's start by adding another Contextual rule. Let's call it `Parking Lot Status` and enter `tick` in the Event Type to ensure the system runs it every minute (see the details for Tick [here](https://chaione.github.io/docs/contextualengine/#event-tick)). Then, enter the following snippet of code in the body of the rule:
 
 ```javascript
 {
-    var parking_lots = vault.search("lot");
-    console.log("Parking lot status:");
-   	for (i = 0; i < parking_lots.length; i++) {
+	var parking_lots = vault.search("lot");
+	for (i = 0; i < parking_lots.length; i++) {
    	    var p_lot = parking_lots[i]
 		//
 		// Uncomment the next line to log what you're sending out to the console
-   	    // console.log("- Parking lot " + p_lot.data.lot + " has " + p_lot.data.spots_available + " spaces available")
-   	    //
-   	    // Now send this data to another system using POST
-   	    http.post('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
-   	    //
-   	    // Or we could send a GET request with parameters instead as in /wm603ywm?lot=A&spots_available=99
-   	    http.get('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
-   	}
+		// console.log("- Parking lot " + p_lot.data.lot + " has " + p_lot.data.spots_available + " spaces available")
+		//
+		// Now send this data to another system using POST
+		http.post('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
+		//
+		// Or we could send a GET request with parameters instead as in /wm603ywm?lot=A&spots_available=99
+		http.get('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
+	}
 }
 ```
 
