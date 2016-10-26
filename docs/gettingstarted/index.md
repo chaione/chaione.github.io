@@ -84,7 +84,7 @@ And let's trigger this event from within our Context Editor, Select the `Test Ev
 ![](../../img/gettingStarted/ContextTestEvent.png)
 
 
-Alright, we're almost there! Lastly, we just have to reference the object in our fault from inside of our `Context` and subtract one from it's `spaces` property. If we checkout out the documentation for a vault object, we'll see that the [following code](https://chaione.github.io/docs/contextualengine/#vault-update) would allow us to retrieve and update our object inside of our Context.
+Alright, we're almost there! Lastly, we just have to reference the object in our vault from inside of our `Context` and subtract one from it's `spaces` property. If we checkout the documentation for a vault object, we'll see that the [following code](https://chaione.github.io/docs/contextualengine/#vault-update) would allow us to retrieve and update our object inside of our Context.
 
 ![](../../img/gettingStarted/ContextVaultObject.png)
 
@@ -115,7 +115,34 @@ Of course we hard-coded the `ObjectId`, the following snippet of code will show 
 }
 ```
 
-So there it is, we have successfully updated an object in our fault by trigger simply calling an event off our endpoint. I'll leave it to you to implement the `car_out` Context rule.
+So there it is, we have successfully updated an object in our vault by trigger simply calling an event off our endpoint. I'll leave it to you to implement the `car_out` Context rule.
+
+### Using http to trigger actions/update data
+
+The final task we are going to walk through is using http to trigger actions / update data in external systems. To demonstrate this, we'll add a Contextual Rule that will run every minute and report the status of our parking lots to another system.
+
+Let's start by adding another Contextual Rule. Let's call it `Parking Lot Status` and select `tick` in the Event Type to ensure the system runs it every minute (see the details for Tick [here](https://chaione.github.io/docs/contextualengine/#event-tick)). And here's the snippet of code:
+
+```javascript
+{
+    var parking_lots = vault.search("lot");
+    console.log("Parking lot status:");
+   	for (i = 0; i < parking_lots.length; i++) {
+   	    var p_lot = parking_lots[i]
+		//
+		// Uncomment the next line to log what you're sending out to the console
+   	    // console.log("- Parking lot " + p_lot.data.lot + " has " + p_lot.data.spots_available + " spaces available")
+   	    //
+   	    // Now send this data to another system using POST
+   	    http.post('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
+   	    //
+   	    // Or we could send a GET request with parameters instead as in /wm603ywm?lot=A&spots_available=99
+   	    http.get('http://requestb.in/wm603ywm', JSON.stringify(p_lot.data), JSON.stringify({"Content-Type":"application/json"}))
+   	}
+}
+```
+
+You can read more details about using [http](https://chaione.github.io/docs/contextualengine/#http) in the documentation.
 
 If you need any help, please do not hesitate to swing by the ChaiOne table or tweet [@initFabian](https://twitter.com/initFabian). 
 
