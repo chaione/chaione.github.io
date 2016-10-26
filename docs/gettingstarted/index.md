@@ -52,7 +52,7 @@ So ok, we are now able to fire off events... Now what? What if we have multiple 
 
 Let's move over to our vault tab and create a new object, that will allow us to maintain state.
 
-![](../../img/gettingStarted/vault.png)
+![](../../img/gettingStarted/Vault.png)
 
 Next, you will be presented with a text editor let's go ahead and put the following JSON code inside:
 
